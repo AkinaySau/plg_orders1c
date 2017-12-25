@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" version="3.6" group="logs" method="upgrade">
+    <name>PLG_LOGS_ORDERS1C</name>
+    <creationDate>18.12.2017</creationDate>
+    <author>AkinaySau</author>
+    <authorEmail>akinaysau@gmail.com</authorEmail>
+    <authorUrl>https://a-sau.ru</authorUrl>
+    <version>1.0</version>
+    <description>PLG_LOGS_ORDERS1C_DESC</description>
+
+    <languages folder="language">
+        <language tag="ru-RU">ru-RU.plg_logs_orders1c.ini</language>
+        <language tag="ru-RU">ru-RU.plg_logs_orders1c.sys.ini</language>
+    </languages>
+
+    <!-- Plugin files -->
+    <files>
+        <filename>index.html</filename>
+        <filename plugin="orders1c">orders1c.php</filename>
+        <folder>language</folder>
+    </files>
+
+    <!-- Config parameter -->
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field name="emails"
+                       type="repeatable"
+                       icon="list"
+                       label="Emails">
+                    <field name="email"
+                           type="email"
+                           label="Email"/>
+                </field>
+                <field name="smtp"
+                       type="radio"
+                       default="0"
+                       label="PLG_ORDERS1C_SMTP"
+                       description=""
+                       class="btn-group">
+                    <option value="0">PLG_ORDERS1C_SMTP_NO</option>
+                    <option value="1">PLG_ORDERS1C_SMTP_YES</option>
+                </field>
+
+                <field name="smtp-server"
+                       type="text"
+                       showon="smtp:1"
+                       default="smtp.yandex.ru"
+                       label="PLG_LOGS_ORDERS1C_LABEL_SERVER"/>
+                <field name="smtp-port"
+                       type="text"
+                       showon="smtp:1"
+                       default="465"
+                       filter="integer"
+                       label="PLG_LOGS_ORDERS1C_LABEL_PORT"/>
+                <field name="smtp-login"
+                       type="text"
+                       showon="smtp:1"
+                       label="PLG_LOGS_ORDERS1C_LABEL_LOGIN"/>
+                <field name="smtp-pass"
+                       type="password"
+                       showon="smtp:1"
+                       label="PLG_LOGS_ORDERS1C_LABEL_PASS"/>
+            </fieldset>
+        </fields>
+    </config>
+</extension>
